@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const config = require("../config/database");
-const { ExtractJwt } = require("passport-jwt");
 
 //User schema
 const UserSchema = mongoose.Schema({
@@ -32,18 +31,19 @@ module.exports.getUserByUsername = function (username, callback) {
 	User.findOne(query, callback);
 };
 
-module.exports.addUser = function (newUser, callback) {
+module.exports.addUser = async function (newUser, callback) {
 	const validationError = validateNewUserFields(newUser);
 	if (validationError) return callback(validationError);
 
-	bcrypt.genSalt(10, (err, salt) => {
-		if (err) return callback(err);
-		bcrypt.hash(newUser.password, salt, (err, hash) => {
-			if (err) return callback(err);
-			newUser.password = hash;
-			newUser.save(callback);
-		});
-	});
+	try {
+		const salt = await bcrypt.genSalt(10);
+		const hash = await bcrypt.hash(newUser.password, salt);
+		newUser.password = hash;
+		await newUser.save();
+		callback(null, newUser);
+	} catch (err) {
+		callback(err);
+	}
 };
 
 function validateNewUserFields(newUser) {
