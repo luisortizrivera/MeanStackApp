@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
-const config = require("../config/database");
 
 //User schema
 const UserSchema = mongoose.Schema({
@@ -31,11 +30,16 @@ module.exports.getUserByUsername = function (username, callback) {
 	User.findOne(query, callback);
 };
 
-module.exports.addUser = async function (newUser, callback) {
-	const validationError = validateNewUserFields(newUser);
-	if (validationError) return callback(validationError);
+module.exports.getUserByEmail = function (email) {
+	const query = { email: email };
+	return User.findOne(query).exec();
+};
 
+module.exports.addUser = async function (newUser, callback) {
 	try {
+		const validationError = await validateNewUserFields(newUser);
+		if (validationError) return callback(validationError);
+
 		const salt = await bcrypt.genSalt(10);
 		const hash = await bcrypt.hash(newUser.password, salt);
 		newUser.password = hash;
@@ -46,23 +50,31 @@ module.exports.addUser = async function (newUser, callback) {
 	}
 };
 
-function validateNewUserFields(newUser) {
+async function validateNewUserFields(newUser) {
 	const paths = User.schema.paths;
 	const requiredFields = Object.keys(paths).filter(
 		(field) => paths[field].isRequired
 	);
+	const userFields = Object.keys(newUser.toObject());
 	const missingFields = requiredFields.filter(
-		(field) => !Object.keys(newUser.toObject()).includes(field)
+		(field) => !userFields.includes(field)
 	);
-	if (missingFields.length) {
-		const missingFieldsMsg = `Please fill in all required fields: ${missingFields.join(
-			", "
-		)}`;
+
+	if (missingFields.length > 0) {
 		return {
 			name: "ValidationError",
-			message: missingFieldsMsg,
+			message: `Please fill in all required fields: ${missingFields.join(
+				", "
+			)}`,
 		};
 	}
+	if (await module.exports.getUserByEmail(newUser.email)) {
+		return {
+			name: "ValidationError",
+			message: "An user with the same email already exists",
+		};
+	}
+	return null;
 }
 
 //get users
