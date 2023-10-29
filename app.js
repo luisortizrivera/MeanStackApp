@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const passport = require("passport");
 const mongoose = require("mongoose");
-
+const session = require("express-session");
 const app = express();
 const PORT = 3000;
 const users = require("./routes/users");
@@ -27,6 +27,19 @@ app.use(cors());
 
 //Body parser middleware
 app.use(bodyParser.json());
+
+//Passport middleware
+app.use(
+	session({
+		secret: "Cicada3301",
+		resave: true,
+		saveUninitialized: true,
+	})
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
+require("./config/passport")(passport);
 
 //Set static folder
 app.use(express.static(path.join(__dirname, "public")));

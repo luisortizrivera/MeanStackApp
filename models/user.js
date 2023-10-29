@@ -25,9 +25,16 @@ module.exports.getUserById = function (id, callback) {
 	User.findById(id, callback);
 };
 
-module.exports.getUserByUsername = function (username, callback) {
-	const query = { username: username };
-	User.findOne(query, callback);
+module.exports.getUserByUsername = async function (username) {
+	const query = { name: username };
+	try {
+		const user = await User.findOne(query);
+		return user || null;
+	} catch (error) {
+		console.log("Error getting user by username");
+		console.error(error);
+		return null;
+	}
 };
 
 module.exports.getUserByEmail = function (email) {
@@ -76,6 +83,13 @@ async function validateNewUserFields(newUser) {
 	}
 	return null;
 }
+
+module.exports.comparePassword = function (candidatePassword, hash, callback) {
+	bcrypt.compare(candidatePassword, hash, (err, isMatch) => {
+		if (err) throw err;
+		callback(null, isMatch);
+	});
+};
 
 //get users
 module.exports.getUsers = function (callback, limit) {
