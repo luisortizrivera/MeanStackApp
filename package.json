@@ -1,26 +1,29 @@
 {
-  "name": "meanstackapp",
-  "version": "1.0.0",
-  "description": "Mean stack app",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app",
-    "dev": "nodemon app"
-  },
-  "dependencies": {
-    "bcryptjs": "*",
-    "body-parser": "*",
-    "cors": "*",
-    "express": "*",
-    "express-session": "^1.17.3",
-    "jsonwebtoken": "*",
-    "mongodb": "^5.5.0",
-    "mongoose": "^5.11.19",
-    "nodemon": "^3.0.1",
-    "passport": "*",
-    "passport-jwt": "*"
-  },
-  "author": "Luis Ortiz Rivera",
-  "license": "ISC"
+	"name": "meanstackapp",
+	"version": "1.0.0",
+	"description": "Mean stack app",
+	"main": "app.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node app",
+		"dev": "nodemon app"
+	},
+	"dependencies": {
+		"bcryptjs": "2.4.3",
+		"body-parser": "1.18.2",
+		"cors": "2.8.4",
+		"express": "4.16.2",
+		"express-session": "^1.17.3",
+		"jsonwebtoken": "8.1.0",
+		"mongoose": "4.13.6",
+		"nodemon": "1.14.11",
+		"passport": "0.4.0",
+		"passport-jwt": "3.0.1",
+		"@types/node": "7.0.7"
+	},
+	"author": "Luis Ortiz Rivera",
+	"license": "ISC",
+	"devDependencies": {
+		"@angular/cli": "^1.6.0"
+	}
 }
