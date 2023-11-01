@@ -15,7 +15,8 @@
     "express": "*",
     "express-session": "^1.17.3",
     "jsonwebtoken": "*",
-    "mongoose": "*",
+    "mongodb": "^5.5.0",
+    "mongoose": "^5.11.19",
     "nodemon": "^3.0.1",
     "passport": "*",
     "passport-jwt": "*"
