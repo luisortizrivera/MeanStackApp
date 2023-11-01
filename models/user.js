@@ -5,6 +5,7 @@ const bcrypt = require("bcryptjs");
 const UserSchema = mongoose.Schema({
 	name: {
 		type: String,
+		required: true,
 	},
 	email: {
 		type: String,
@@ -12,6 +13,9 @@ const UserSchema = mongoose.Schema({
 	},
 	username: {
 		type: String,
+		default: function () {
+			return this.name;
+		},
 	},
 	password: {
 		type: String,
@@ -21,12 +25,19 @@ const UserSchema = mongoose.Schema({
 
 const User = (module.exports = mongoose.model("User", UserSchema));
 
-module.exports.getUserById = function (id, callback) {
-	User.findById(id, callback);
+module.exports.getUserById = async function (id) {
+	try {
+		const result = await User.findById(id);
+		return result;
+	} catch (error) {
+		console.log("Error searching for user by id");
+		console.error(error);
+		return null;
+	}
 };
 
 module.exports.getUserByUsername = async function (username) {
-	const query = { name: username };
+	const query = { username: username };
 	try {
 		const user = await User.findOne(query);
 		return user || null;
@@ -54,6 +65,18 @@ module.exports.addUser = async function (newUser, callback) {
 		callback(null, newUser);
 	} catch (err) {
 		callback(err);
+	}
+};
+
+module.exports.deleteUser = async function (id) {
+	const query = { _id: id };
+	try {
+		const result = await User.deleteOne(query);
+		return result;
+	} catch (error) {
+		console.log("Error deleting user");
+		console.error(error);
+		return null;
 	}
 };
 
@@ -91,7 +114,14 @@ module.exports.comparePassword = function (candidatePassword, hash, callback) {
 	});
 };
 
-//get users
-module.exports.getUsers = function (callback, limit) {
-	User.find(callback).limit(limit);
+//get all users
+module.exports.getUsers = async function () {
+	try {
+		const users = await User.find();
+		return users;
+	} catch (error) {
+		console.log("Error getting users");
+		console.error(error);
+		return null;
+	}
 };

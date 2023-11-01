@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require("../models/user");
 const jwt = require("jsonwebtoken");
 const dbConfig = require("../config/database");
+const passport = require("passport");
 
 //Register
 router.post("/register", (req, res, next) => {
@@ -49,13 +50,48 @@ router.post("/authenticate", async (req, res, next) => {
 		});
 	} catch (error) {
 		console.error(error);
-		throw error;
+		res.json({ success: false, message: error.message });
 	}
 });
 
 //Profile
-router.get("/profile", (req, res, next) => {
-	res.send("<h1>PROFILE</h1>");
-});
+router.get(
+	"/profile",
+	passport.authenticate("jwt", { session: false }),
+	(req, res, next) => {
+		res.json({ user: req.user });
+	}
+);
+
+router.delete(
+	"/delete",
+	passport.authenticate("jwt", { session: false }),
+	async (req, res, next) => {
+		try {
+			const user = await User.deleteUser(req.query.id);
+			if (user) res.json({ msg: "User deleted successfully", User: user });
+			else res.json({ msg: "User not found" });
+		} catch (error) {
+			console.error(error);
+			res.json({ success: false, message: error.message });
+		}
+	}
+);
+
+router.get(
+	"/list",
+	passport.authenticate("jwt", { session: false }),
+	async (req, res, next) => {
+		try {
+			const users = await User.getUsers();
+			if (users && users.length > 0)
+				res.json({ msg: "Users listed successfully", Users: users });
+			else res.json({ msg: "No users found" });
+		} catch (error) {
+			console.error(error);
+			res.json({ success: false, message: error.message });
+		}
+	}
+);
 
 module.exports = router;
