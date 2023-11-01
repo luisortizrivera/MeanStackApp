@@ -45,7 +45,7 @@ require("./config/passport")(passport);
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
-	res.send("<h1>Hello world!</h1>");
+	res.send("<h1>Only REST API</h1>");
 });
 
 app.use("/users", users);
