@@ -1,22 +1,19 @@
-<nav class="navbar navbar-dark bg-dark" aria-label="Dark offcanvas navbar">
+<header class="p-3 text-bg-dark">
   <div class="container">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Mean auth app</a>
-    </div>
-    <div id="navbar" class="collapse navbar-collapse">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
-      <ul class="nav navbar-nav navbar-left">
-        <li>
-          <a routerLink="/" routerLinkActive="active" routerLinkActiveOptions="{exact: true}">HOME</a>
-        </li>
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a class="nav-link px-2 text-white">MEAN stack app</a></li>
+        <li><a class="nav-link px-2 text-white" routerLink="/" routerLinkActive="active"
+            routerLinkActiveOptions="{exact: true}">Home</a></li>
       </ul>
-    </div>
 
-    <ul class="nav navbar-nav navbar-right">
-      <li>
-        <a routerLink="/login" routerLinkActive="active" routerLinkActiveOptions="{exact: true}">Login</a>
-        <a routerLink="/register" routerLinkActive="active" routerLinkActiveOptions="{exact: true}">Register</a>
-      </li>
-    </ul>
+      <div class="text-end">
+        <button type="button" class="btn btn-outline-light me-2" routerLink="/login" routerLinkActive="active"
+          routerLinkActiveOptions="{exact: true}">Login</button>
+        <button type="button" class="btn btn-warning" routerLink="/register" routerLinkActive="active"
+          routerLinkActiveOptions="{exact: true}">Register</button>
+      </div>
+    </div>
   </div>
-</nav>
+</header>
