@@ -1,27 +1,30 @@
 <main class="form-signin w-100 m-auto">
   <form (submit)="onRegisterSubmit()">
-    <h1 class="h3 mb-3 fw-normal text-center" style="margin-top: 2rem;">Registration</h1>
-
+    <h1 class="h3 mb-3 fw-normal text-center" style="margin-top: 2rem">
+      Registration
+    </h1>
     <div class="form-floating">
-      <input type="text" [(ngModel)]="name" name="name" class="form-control" id="floatingName" placeholder="Pablo">
+      <input type="text" class="form-control" id="floatingName" placeholder="Pablo" [(ngModel)]="name" name="name" />
       <label for="floatingName">Name </label>
     </div>
     <div class="form-floating">
-      <input type="text" [(ngModel)]="username" name="username" class="form-control" id="floatingUsername"
-        placeholder="Pablito1998">
+      <input type="text" class="form-control" id="floatingUsername" placeholder="Pablito1998" [(ngModel)]="username"
+        name="username" />
       <label for="floatingUsername">Username</label>
     </div>
     <div class="form-floating">
-      <input type="email" [(ngModel)]="email" name="email" class="form-control" id="floatingEmail"
-        placeholder="name@example.com">
+      <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" [(ngModel)]="email"
+        name="email" />
       <label for="floatingEmail">Email address</label>
     </div>
     <div class="form-floating">
-      <input type="password" [(ngModel)]="password" name="password" class="form-control" id="floatingPassword"
-        placeholder="MyPassword0@.">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="MyPassword0@."
+        [(ngModel)]="password" name="password" />
       <label for="floatingPassword">Password</label>
     </div>
 
-    <button class="btn btn-primary w-100 py-2 submitButton" type="submit">Submit</button>
+    <button class="btn btn-primary w-100 py-2 submitButton" type="submit">
+      Submit
+    </button>
   </form>
 </main>
