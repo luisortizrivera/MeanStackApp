@@ -18,7 +18,11 @@ router.post("/register", (req, res, next) => {
 		if (err) {
 			if (err.name === "ValidationError")
 				return res.status(400).json({ message: err.message });
-			return res.json({ success: false, msg: "Failed to register user" });
+			return res.json({
+				success: false,
+				msg: "Failed to register user",
+				err: err,
+			});
 		} else return res.json({ success: true, msg: "User registered", user });
 	});
 });
