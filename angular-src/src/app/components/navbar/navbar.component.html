@@ -9,11 +9,16 @@
       </ul>
 
       <div class="text-end">
-        <button type="button" class="btn btn-outline-light me-2" routerLink="/login" routerLinkActive="active"
-          routerLinkActiveOptions="{exact: true}">Login</button>
-        <button type="button" class="btn btn-warning" routerLink="/register" routerLinkActive="active"
-          routerLinkActiveOptions="{exact: true}">Register</button>
-        <button type="button" class="btn btn-danger" (click)="onLogoutClick()" href="#">Logout</button>
+        <button *ngIf="!authService.loggedIn()" type="button" class="btn btn-outline-light me-2" routerLink="/login"
+          routerLinkActive="active" routerLinkActiveOptions="{exact: true}">Login</button>
+        <button *ngIf="!authService.loggedIn()" type="button" class="btn btn-warning" routerLink="/register"
+          routerLinkActive="active" routerLinkActiveOptions="{exact: true}">Register</button>
+        <button *ngIf="authService.loggedIn()" type="button" class="btn btn-info" routerLink="/profile"
+          routerLinkActive="active" routerLinkActiveOptions="{exact: true}">Profile</button>
+        <button *ngIf="authService.loggedIn()" type="button" class="btn btn-primary" routerLink="/dashboard"
+          routerLinkActive="active" routerLinkActiveOptions="{exact: true}">Dashboard</button>
+        <button *ngIf="authService.loggedIn()" type="button" class="btn btn-danger" (click)="onLogoutClick()"
+          href="#">Logout</button>
       </div>
     </div>
   </div>
