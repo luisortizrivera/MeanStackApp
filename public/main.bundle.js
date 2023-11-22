@@ -650,13 +650,13 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.registerUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["d" /* HttpHeaders */]().set("Content-Type", "application/json");
         return this.http
-            .post("users/register", user, { headers: headers })
+            .post("http://localhost:3000/users/register", user, { headers: headers })
             .pipe(Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_operators__["a" /* map */])(function (res) { return res; }));
     };
     AuthService.prototype.authenticateUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["d" /* HttpHeaders */]().set("Content-Type", "application/json");
         return this.http
-            .post("users/authenticate", user, {
+            .post("http://localhost:3000/users/authenticate", user, {
             headers: headers,
         })
             .pipe(Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_operators__["a" /* map */])(function (res) { return res; }));
@@ -668,7 +668,7 @@ var AuthService = /** @class */ (function () {
             Authorization: this.authToken,
         });
         return this.http
-            .get("users/profile", { headers: headers })
+            .get("http://localhost:3000/users/profile", { headers: headers })
             .pipe(Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_operators__["a" /* map */])(function (res) { return res; }));
     };
     AuthService.prototype.loadToken = function () {

@@ -6,8 +6,7 @@ const passport = require("passport");
 const mongoose = require("mongoose");
 const session = require("express-session");
 const app = express();
-// const PORT = 3000;
-const PORT = process.env.PORT || 8080;
+const PORT = 3000;
 const users = require("./routes/users");
 const dbConfig = require("./config/database");
 
