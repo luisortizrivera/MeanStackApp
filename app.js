@@ -48,11 +48,11 @@ app.get("/", (req, res) => {
 	res.send("<h1>Only REST API</h1>");
 });
 
+app.use("/users", users);
+
 app.get("*", (req, res) => {
 	res.sendFile(path.join(__dirname, "public/index.html"));
 });
-
-app.use("/users", users);
 
 //Server init in PORT
 app.listen(PORT, () => {
