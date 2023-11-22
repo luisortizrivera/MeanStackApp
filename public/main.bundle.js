@@ -160,7 +160,7 @@ module.exports = ""
 /***/ "./src/app/components/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"jumbotron\">\n    <h1 class=\"display-4\">Welcome to your dashboard</h1>\n    <p class=\"lead\">This is a simple landing page for your dashboard.</p>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\r\n  <div class=\"jumbotron\">\r\n    <h1 class=\"display-4\">Welcome to your dashboard</h1>\r\n    <p class=\"lead\">This is a simple landing page for your dashboard.</p>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -210,7 +210,7 @@ module.exports = "h3 {\r\n  background-color: lightgray;\r\n}\r\n"
 /***/ "./src/app/components/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\" style=\"display: flex; height: 200px; justify-content: center; align-items: center;\">\n    <div class=\"col-12 greeting\">\n      <p class=\"text-center\" style=\"font-size: 40px;\">This is a MEAN stack app</p>\n    </div>\n  </div>\n  <div class=\"row mx-auto\">\n    <div class=\"col-sm-4\">\n      <h3 class=\"text-center\">Express Backend</h3>\n      <p class=\"text-center\">A Node.js/Express server using Mongoose</p>\n    </div>\n    <div class=\"col-sm-4\">\n      <h3 class=\"text-center\">Angular CLI</h3>\n      <p class=\"text-center\">Angular-CLI to generate components, services and more</p>\n    </div>\n    <div class=\"col-sm-4\">\n      <h3 class=\"text-center\">JWT tokens</h3>\n      <p class=\"text-center\">Full featured authentication using JSON web tokens</p>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\r\n  <div class=\"row\" style=\"display: flex; height: 200px; justify-content: center; align-items: center;\">\r\n    <div class=\"col-12 greeting\">\r\n      <p class=\"text-center\" style=\"font-size: 40px;\">This is a MEAN stack app</p>\r\n    </div>\r\n  </div>\r\n  <div class=\"row mx-auto\">\r\n    <div class=\"col-sm-4\">\r\n      <h3 class=\"text-center\">Express Backend</h3>\r\n      <p class=\"text-center\">A Node.js/Express server using Mongoose</p>\r\n    </div>\r\n    <div class=\"col-sm-4\">\r\n      <h3 class=\"text-center\">Angular CLI</h3>\r\n      <p class=\"text-center\">Angular-CLI to generate components, services and more</p>\r\n    </div>\r\n    <div class=\"col-sm-4\">\r\n      <h3 class=\"text-center\">JWT tokens</h3>\r\n      <p class=\"text-center\">Full featured authentication using JSON web tokens</p>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -260,7 +260,7 @@ module.exports = ""
 /***/ "./src/app/components/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<main class=\"form-signin w-100 m-auto\">\n  <form (submit)=\"onLoginSubmit()\">\n    <h1 class=\"h3 mb-3 fw-normal text-center\" style=\"margin-top: 2rem\">\n      Login\n    </h1>\n    <div class=\"form-floating\">\n      <input type=\"text\" class=\"form-control\" id=\"floatingUserName\" placeholder=\"Enter Username\" [(ngModel)]=\"username\"\n        name=\"username\">\n      <label for=\"floatingUserName\">Username</label>\n    </div>\n    <div class=\"form-floating\">\n      <input type=\"password\" class=\"form-control\" id=\"floatingPassword\" placeholder=\"Enter password\"\n        [(ngModel)]=\"password\" name=\"password\">\n      <label for=\" floatingPassword\">Password</label>\n    </div>\n    <button class=\"btn btn-primary w-100 py-2 submitButton\" type=\"submit\">\n      Login\n    </button>\n  </form>\n</main>"
+module.exports = "<main class=\"form-signin w-100 m-auto\">\r\n  <form (submit)=\"onLoginSubmit()\">\r\n    <h1 class=\"h3 mb-3 fw-normal text-center\" style=\"margin-top: 2rem\">\r\n      Login\r\n    </h1>\r\n    <div class=\"form-floating\">\r\n      <input type=\"text\" class=\"form-control\" id=\"floatingUserName\" placeholder=\"Enter Username\" [(ngModel)]=\"username\"\r\n        name=\"username\">\r\n      <label for=\"floatingUserName\">Username</label>\r\n    </div>\r\n    <div class=\"form-floating\">\r\n      <input type=\"password\" class=\"form-control\" id=\"floatingPassword\" placeholder=\"Enter password\"\r\n        [(ngModel)]=\"password\" name=\"password\">\r\n      <label for=\" floatingPassword\">Password</label>\r\n    </div>\r\n    <button class=\"btn btn-primary w-100 py-2 submitButton\" type=\"submit\">\r\n      Login\r\n    </button>\r\n  </form>\r\n</main>"
 
 /***/ }),
 
@@ -345,7 +345,7 @@ module.exports = ""
 /***/ "./src/app/components/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header class=\"p-3 text-bg-dark\">\n  <div class=\"container\">\n    <div class=\"d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start\">\n\n      <ul class=\"nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0\">\n        <li><a class=\"nav-link px-2 text-white\">MEAN stack app</a></li>\n        <li><a class=\"nav-link px-2 text-white\" routerLink=\"/\" routerLinkActive=\"active\"\n            routerLinkActiveOptions=\"{exact: true}\">Home</a></li>\n      </ul>\n\n      <div class=\"text-end\">\n        <button *ngIf=\"!authService.loggedIn()\" type=\"button\" class=\"btn btn-outline-light me-2\" routerLink=\"/login\"\n          routerLinkActive=\"active\" routerLinkActiveOptions=\"{exact: true}\">Login</button>\n        <button *ngIf=\"!authService.loggedIn()\" type=\"button\" class=\"btn btn-warning\" routerLink=\"/register\"\n          routerLinkActive=\"active\" routerLinkActiveOptions=\"{exact: true}\">Register</button>\n        <button *ngIf=\"authService.loggedIn()\" type=\"button\" class=\"btn btn-info\" routerLink=\"/profile\"\n          routerLinkActive=\"active\" routerLinkActiveOptions=\"{exact: true}\">Profile</button>\n        <button *ngIf=\"authService.loggedIn()\" type=\"button\" class=\"btn btn-primary\" routerLink=\"/dashboard\"\n          routerLinkActive=\"active\" routerLinkActiveOptions=\"{exact: true}\">Dashboard</button>\n        <button *ngIf=\"authService.loggedIn()\" type=\"button\" class=\"btn btn-danger\" (click)=\"onLogoutClick()\"\n          href=\"#\">Logout</button>\n      </div>\n    </div>\n  </div>\n</header>"
+module.exports = "<header class=\"p-3 text-bg-dark\">\r\n  <div class=\"container\">\r\n    <div class=\"d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start\">\r\n\r\n      <ul class=\"nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0\">\r\n        <li><a class=\"nav-link px-2 text-white\">MEAN stack app</a></li>\r\n        <li><a class=\"nav-link px-2 text-white\" routerLink=\"/\" routerLinkActive=\"active\"\r\n            routerLinkActiveOptions=\"{exact: true}\">Home</a></li>\r\n      </ul>\r\n\r\n      <div class=\"text-end\">\r\n        <button *ngIf=\"!authService.loggedIn()\" type=\"button\" class=\"btn btn-outline-light me-2\" routerLink=\"/login\"\r\n          routerLinkActive=\"active\" routerLinkActiveOptions=\"{exact: true}\">Login</button>\r\n        <button *ngIf=\"!authService.loggedIn()\" type=\"button\" class=\"btn btn-warning\" routerLink=\"/register\"\r\n          routerLinkActive=\"active\" routerLinkActiveOptions=\"{exact: true}\">Register</button>\r\n        <button *ngIf=\"authService.loggedIn()\" type=\"button\" class=\"btn btn-info\" routerLink=\"/profile\"\r\n          routerLinkActive=\"active\" routerLinkActiveOptions=\"{exact: true}\">Profile</button>\r\n        <button *ngIf=\"authService.loggedIn()\" type=\"button\" class=\"btn btn-primary\" routerLink=\"/dashboard\"\r\n          routerLinkActive=\"active\" routerLinkActiveOptions=\"{exact: true}\">Dashboard</button>\r\n        <button *ngIf=\"authService.loggedIn()\" type=\"button\" class=\"btn btn-danger\" (click)=\"onLogoutClick()\"\r\n          href=\"#\">Logout</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</header>"
 
 /***/ }),
 
@@ -415,7 +415,7 @@ module.exports = ""
 /***/ "./src/app/components/profile/profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"user\">\n  <h2 class=\"page-header\">{{user.name}}</h2>\n  <ul class=\"list-group\">\n    <li class=\"list-group-item\">\n      Username: {{user.username}}\n    </li>\n    <li class=\"list-group-item\">\n      Email: {{user.email}}\n    </li>\n  </ul>\n</div>"
+module.exports = "<div *ngIf=\"user\">\r\n  <h2 class=\"page-header\">{{user.name}}</h2>\r\n  <ul class=\"list-group\">\r\n    <li class=\"list-group-item\">\r\n      Username: {{user.username}}\r\n    </li>\r\n    <li class=\"list-group-item\">\r\n      Email: {{user.email}}\r\n    </li>\r\n  </ul>\r\n</div>"
 
 /***/ }),
 
@@ -478,7 +478,7 @@ module.exports = ".submitButton {\r\n  margin-top: 2rem;\r\n}\r\n"
 /***/ "./src/app/components/register/register.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<main class=\"form-signin w-100 m-auto\">\n  <form (submit)=\"onRegisterSubmit()\">\n    <h1 class=\"h3 mb-3 fw-normal text-center\" style=\"margin-top: 2rem\">\n      Registration\n    </h1>\n    <div class=\"form-floating\">\n      <input type=\"text\" class=\"form-control\" id=\"floatingName\" placeholder=\"Pablo\" [(ngModel)]=\"name\" name=\"name\" />\n      <label for=\"floatingName\">Name </label>\n    </div>\n    <div class=\"form-floating\">\n      <input type=\"text\" class=\"form-control\" id=\"floatingUsername\" placeholder=\"Pablito1998\" [(ngModel)]=\"username\"\n        name=\"username\" />\n      <label for=\"floatingUsername\">Username</label>\n    </div>\n    <div class=\"form-floating\">\n      <input type=\"email\" class=\"form-control\" id=\"floatingEmail\" placeholder=\"name@example.com\" [(ngModel)]=\"email\"\n        name=\"email\" />\n      <label for=\"floatingEmail\">Email address</label>\n    </div>\n    <div class=\"form-floating\">\n      <input type=\"password\" class=\"form-control\" id=\"floatingPassword\" placeholder=\"MyPassword0@.\"\n        [(ngModel)]=\"password\" name=\"password\" />\n      <label for=\"floatingPassword\">Password</label>\n    </div>\n\n    <button class=\"btn btn-primary w-100 py-2 submitButton\" type=\"submit\">\n      Submit\n    </button>\n  </form>\n</main>"
+module.exports = "<main class=\"form-signin w-100 m-auto\">\r\n  <form (submit)=\"onRegisterSubmit()\">\r\n    <h1 class=\"h3 mb-3 fw-normal text-center\" style=\"margin-top: 2rem\">\r\n      Registration\r\n    </h1>\r\n    <div class=\"form-floating\">\r\n      <input type=\"text\" class=\"form-control\" id=\"floatingName\" placeholder=\"Pablo\" [(ngModel)]=\"name\" name=\"name\" />\r\n      <label for=\"floatingName\">Name </label>\r\n    </div>\r\n    <div class=\"form-floating\">\r\n      <input type=\"text\" class=\"form-control\" id=\"floatingUsername\" placeholder=\"Pablito1998\" [(ngModel)]=\"username\"\r\n        name=\"username\" />\r\n      <label for=\"floatingUsername\">Username</label>\r\n    </div>\r\n    <div class=\"form-floating\">\r\n      <input type=\"email\" class=\"form-control\" id=\"floatingEmail\" placeholder=\"name@example.com\" [(ngModel)]=\"email\"\r\n        name=\"email\" />\r\n      <label for=\"floatingEmail\">Email address</label>\r\n    </div>\r\n    <div class=\"form-floating\">\r\n      <input type=\"password\" class=\"form-control\" id=\"floatingPassword\" placeholder=\"MyPassword0@.\"\r\n        [(ngModel)]=\"password\" name=\"password\" />\r\n      <label for=\"floatingPassword\">Password</label>\r\n    </div>\r\n\r\n    <button class=\"btn btn-primary w-100 py-2 submitButton\" type=\"submit\">\r\n      Submit\r\n    </button>\r\n  </form>\r\n</main>"
 
 /***/ }),
 
@@ -650,13 +650,13 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.registerUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["d" /* HttpHeaders */]().set("Content-Type", "application/json");
         return this.http
-            .post("http://localhost:3000/users/register", user, { headers: headers })
+            .post("users/register", user, { headers: headers })
             .pipe(Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_operators__["a" /* map */])(function (res) { return res; }));
     };
     AuthService.prototype.authenticateUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["d" /* HttpHeaders */]().set("Content-Type", "application/json");
         return this.http
-            .post("http://localhost:3000/users/authenticate", user, {
+            .post("users/authenticate", user, {
             headers: headers,
         })
             .pipe(Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_operators__["a" /* map */])(function (res) { return res; }));
@@ -668,7 +668,7 @@ var AuthService = /** @class */ (function () {
             Authorization: this.authToken,
         });
         return this.http
-            .get("http://localhost:3000/users/profile", { headers: headers })
+            .get("users/profile", { headers: headers })
             .pipe(Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_operators__["a" /* map */])(function (res) { return res; }));
     };
     AuthService.prototype.loadToken = function () {
